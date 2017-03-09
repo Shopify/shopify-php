@@ -1,0 +1,17 @@
+{
+  "name": "shopify/shopify-php",
+  "description": "PHP library for the Shopify API",
+  "require": {
+    "php": ">=5.4",
+    "ext-curl": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.8.*",
+    "codeclimate/php-test-reporter": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Shopify\\": "src/"
+    }
+  }
+}

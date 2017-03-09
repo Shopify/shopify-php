@@ -1,0 +1,26 @@
+HTTP/1.1 201 Created
+Server: nginx
+Date: Mon, 16 Jan 2017 22:46:24 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Frame-Options: DENY
+X-ShopId: 10051992
+X-ShardId: 8
+X-Shopify-Shop-Api-Call-Limit: 1/40
+HTTP_X_SHOPIFY_SHOP_API_CALL_LIMIT: 1/40
+X-Stats-UserId: 0
+X-Stats-ApiClientId: 1223938
+X-Stats-ApiPermissionId: 18998658
+Location: https://4234322.myshopify.com/admin/orders/4455946697
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+X-XSS-Protection: 1; mode=block; report=/xss-report?source%5Baction%5D=create&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Forders&source%5Bsection%5D=admin&source%5Buuid%5D=abddd8d5-8947-4c92-9cac-d81d8c4396a9
+P3P: CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+X-Dc: ash,chi2
+X-Content-Type-Options: nosniff
+X-Request-ID: abddd8d5-8947-4c92-9cac-d81d8c4396a9
+X-Content-Type-Options: nosniff
+
+{"order":{"id":4455820553,"email":"","closed_at":null,"created_at":"2017-01-16T16:46:24-05:00","updated_at":"2017-01-16T16:46:24-05:00","number":13,"note":null,"token":"3a62258de3dd34c4bf180d3fb63fb299","gateway":"","test":false,"total_price":"0.00","subtotal_price":"0.00","total_weight":0,"total_tax":"0.00","taxes_included":false,"currency":"CAD","financial_status":"paid","confirmed":true,"total_discounts":"0.00","total_line_items_price":"0.00","cart_token":null,"buyer_accepts_marketing":false,"name":"#1013","referring_site":null,"landing_site":null,"cancelled_at":null,"cancel_reason":null,"total_price_usd":"0.00","checkout_token":null,"reference":null,"user_id":null,"location_id":null,"source_identifier":null,"source_url":null,"processed_at":"2017-01-16T16:46:24-05:00","device_id":null,"browser_ip":null,"landing_site_ref":null,"order_number":1013,"discount_codes":[],"note_attributes":[],"payment_gateway_names":[],"processing_method":"","checkout_id":null,"source_name":"1223938","fulfillment_status":null,"tax_lines":[],"tags":"","contact_email":null,"order_status_url":null,"line_items":[{"id":8662293577,"variant_id":null,"title":"cool","quantity":0,"price":"4.00","grams":0,"sku":null,"variant_title":null,"vendor":null,"fulfillment_service":"manual","product_id":null,"requires_shipping":true,"taxable":true,"gift_card":false,"name":"cool","variant_inventory_management":null,"properties":[],"product_exists":false,"fulfillable_quantity":0,"total_discount":"0.00","fulfillment_status":null,"tax_lines":[]}],"shipping_lines":[],"fulfillments":[],"refunds":[]}}

@@ -1,5 +1,5 @@
 
-# 🚧 Work in progress 🚧 
+# 🚧 Work in progress 🚧
 
 [![Build Status](https://travis-ci.org/shopify/shopify-php.svg?branch=master)](https://travis-ci.org/shopify/shopify-php) <a href="https://codeclimate.com/github/shopify/shopify-php/coverage"><img src="https://codeclimate.com/github/shopify/shopify-php/badges/coverage.svg" /></a>
 

@@ -19,7 +19,7 @@ class CurlResponse implements HttpResponseInterface
         return $this->_status;
     }
 
-    public function json()
+    public function parsedResponse()
     {
         $response = json_decode($this->_responseBody);
         if (is_object($response) && count(get_object_vars($response)) === 1) {

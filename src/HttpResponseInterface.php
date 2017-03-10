@@ -5,7 +5,7 @@ interface HttpResponseInterface
 {
     public function httpStatus();
 
-    public function json();
+    public function parsedResponse();
 
     public function body();
 

@@ -16,7 +16,7 @@ class CurlResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(201, $response->httpStatus());
     }
 
-    public function testJson()
+    public function testParsedResponse()
     {
         $newResponse = new CurlResponse($this->_mockResponse);
         $object = (object)[
@@ -100,19 +100,19 @@ class CurlResponseTest extends \PHPUnit_Framework_TestCase
             "fulfillments" => [],
             "refunds" => []
         ];
-        $this->assertEquals($object, $newResponse->json());
+        $this->assertEquals($object, $newResponse->parsedResponse());
     }
 
     public function testJsonSmall()
     {
         $newResponse = new CurlResponse("HTTP/1.1 201 Created\r\nServer: nginx\r\n\r\n{\"count\": 1}", 201);
-        $this->assertEquals(1, $newResponse->json());
+        $this->assertEquals(1, $newResponse->parsedResponse());
     }
 
     public function testGetJsonNumerousRootElements()
     {
         $newResponse = new CurlResponse("HTTP/1.1 201 Created\r\nServer: nginx\r\n\r\n{\"count\": 1, \"something_else\": \"cats\"}");
-        $this->assertEquals(json_decode('{"count": 1, "something_else": "cats"}'), $newResponse->json());
+        $this->assertEquals(json_decode('{"count": 1, "something_else": "cats"}'), $newResponse->parsedResponse());
     }
 
     public function testBody()

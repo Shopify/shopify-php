@@ -12,6 +12,8 @@ php:
 before_script:
   - composer install
 
+script:
+    - vendor/bin/phpunit --coverage-clover=coverage.xml
+
 after_success:
-  - vendor/bin/test-reporter --stdout > codeclimate.json
-  - "curl -X POST -d @codeclimate.json -H 'Content-Type: application/json' -H 'User-Agent: Code Climate (PHP Test Reporter v0.1.1)' https://codeclimate.com/test_reports"
+    - bash <(curl -s https://codecov.io/bash)

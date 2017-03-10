@@ -27,12 +27,12 @@ $response = $client->orders->create($newOrder);
 
 ```php
 $response = $client->orders->read($orderId);
-$object = $response->getJson();
+$object = $response->parsedResponse();
 ```
 
 ```php
 $orders = $client->orders->readList();
-foreach ($order in $orders->getJson()) {
+foreach ($order in $orders->parsedResponse()) {
     var_dump($order->id);
 }
 ```

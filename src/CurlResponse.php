@@ -14,12 +14,12 @@ class CurlResponse implements HttpResponseInterface
         $this->_responseBody = $data[1];
     }
 
-    public function getStatus()
+    public function httpStatus()
     {
         return $this->_status;
     }
 
-    public function getJson()
+    public function json()
     {
         $response = json_decode($this->_responseBody);
         if (is_object($response) && count(get_object_vars($response)) === 1) {
@@ -30,17 +30,17 @@ class CurlResponse implements HttpResponseInterface
         return $response;
     }
 
-    public function rawBody()
+    public function body()
     {
         return $this->_responseBody;
     }
 
-    public function bucketSpace()
+    public function creditLeft()
     {
-        return $this->bucketSize() - $this->bucketFill();
+        return $this->creditLimit() - $this->creditUsed();
     }
 
-    public function bucketSize()
+    public function creditLimit()
     {
         return (int)explode("/", $this->_bucket())[1];
     }
@@ -50,7 +50,7 @@ class CurlResponse implements HttpResponseInterface
         return $this->_headers["X-Shopify-Shop-Api-Call-Limit"];
     }
 
-    public function bucketFill()
+    public function creditUsed()
     {
         return (int)explode("/", $this->_bucket())[0];
     }

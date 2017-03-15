@@ -3,15 +3,15 @@ namespace Shopify;
 
 interface HttpResponseInterface
 {
-    public function getStatus();
+    public function httpStatus();
 
-    public function getJson();
+    public function parsedResponse();
 
-    public function rawBody();
+    public function body();
 
-    public function bucketFill();
+    public function creditUsed();
 
-    public function bucketSize();
+    public function creditLimit();
 
-    public function bucketSpace();
+    public function creditLeft();
 }

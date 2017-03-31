@@ -72,7 +72,7 @@ class ShopifyClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new ShopifyClient("abnini3ruin4ruinc", "040350450399894.myshopify.com");
         $client->setHttpClient(new MockRequest());
-        $response = $client->call("PUT","messages/3094304723/templates", ['test' => 'call'], ['since_id' => 4]);
+        $response = $client->call("PUT", "messages/3094304723/templates", ['test' => 'call'], ['since_id' => 4]);
         $this->assertEquals("PUT", $response[0]);
         $this->assertEquals("https://040350450399894.myshopify.com/admin/messages/3094304723/templates.json", $response[1]);
         $this->assertEquals(['Content-Type: application/json', 'X-Shopify-Access-Token: abnini3ruin4ruinc'], $response[2]);
@@ -80,15 +80,16 @@ class ShopifyClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['since_id' => 4], $response[4]);
     }
 
-    public function testSetShopNameAndAccessToken() {
+    public function testSetShopNameAndAccessToken()
+    {
         $client = new ShopifyClient("abnini3ruin4ruinc", "040350450399894.myshopify.com");
         $client->setHttpClient(new MockRequest());
         $client->setShopName('4234322.myshopify.com');
-        $response = $client->call("PUT","messages/3094304723/templates", ['test' => 'call'], ['since_id' => 4]);
+        $response = $client->call("PUT", "messages/3094304723/templates", ['test' => 'call'], ['since_id' => 4]);
         $this->assertEquals("https://4234322.myshopify.com/admin/messages/3094304723/templates.json", $response[1]);
         $this->assertEquals(['Content-Type: application/json', 'X-Shopify-Access-Token: abnini3ruin4ruinc'], $response[2]);
         $client->setAccessToken('xyzrf43f4ff434t43');
-        $response = $client->call("PUT","messages/3094304723/templates", ['test' => 'call'], ['since_id' => 4]);
+        $response = $client->call("PUT", "messages/3094304723/templates", ['test' => 'call'], ['since_id' => 4]);
         $this->assertEquals("https://4234322.myshopify.com/admin/messages/3094304723/templates.json", $response[1]);
         $this->assertEquals(['Content-Type: application/json', 'X-Shopify-Access-Token: xyzrf43f4ff434t43'], $response[2]);
     }

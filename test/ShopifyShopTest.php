@@ -8,7 +8,8 @@ namespace Shopify;
 
 class ShopifyShopTest extends \PHPUnit_Framework_TestCase
 {
-    public function testRead() {
+    public function testRead()
+    {
         $client = new ShopifyClient('ab3fj34oiri23difc', '040350450399894.myshopify.com');
         $client->setHttpClient(new MockRequest());
         $out = $client->shops->read();

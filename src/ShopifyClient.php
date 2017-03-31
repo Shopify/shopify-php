@@ -68,7 +68,7 @@ class ShopifyClient
     {
         return [
             'Content-Type: application/json',
-            'X-Shopify-Access-Token: ' . $this->_accessToken
+            'X-Shopify-Access-Token: ' . $this->accessToken
         ];
     }
 

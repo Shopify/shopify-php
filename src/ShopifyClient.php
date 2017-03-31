@@ -43,11 +43,20 @@ class ShopifyClient
 
     public function setShopName($shopName)
     {
-        $arr = explode(".", $shopName);
-        if (count($arr) !== 3 || $arr[1] !== "myshopify" || !in_array($arr[2], ["com", "io"]) || !preg_match('/^([a-zA-Z0-9\-]{3,100})$/', $arr[0])) {
-            throw new \InvalidArgumentException("Shop name should be 3-100 letters, numbers, or hyphens e.g. your-store.myshopify.com");
+        if (!$this->_isValidShopName($shopName)) {
+            throw new \InvalidArgumentException(
+                'Shop name should be 3-100 letters, numbers, or hyphens e.g. your-store.myshopify.com'
+            );
         }
         $this->_shopName = $shopName;
+    }
+
+    private function _isValidShopName($shopName)
+    {
+        if (preg_match('/^[a-zA-Z0-9\-]{3,100}\.myshopify\.(?:com|io)$/', $shopName)) {
+            return true;
+        }
+        return false;
     }
 
     private function _uriBuilder($resource)

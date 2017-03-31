@@ -16,22 +16,22 @@ class ShopifyVariant extends ShopifyObject
     const PLURAL = "variants";
     const SINGULAR = "variant";
 
-    public function readList($productId = null, Array $options = [])
+    public function readList($productId = null, array $options = [])
     {
-        return $this->_getList($options, $this->_prefix($productId));
+        return $this->getList($options, $this->prefix($productId));
     }
 
-    public function create($productId, Array $data)
+    public function create($productId, array $data)
     {
-        return $this->_post($data, $this->_prefix($productId));
+        return $this->post($data, $this->prefix($productId));
     }
 
-    public function readCount($productId = null, Array $options = [])
+    public function readCount($productId = null, array $options = [])
     {
-        return $this->_getCount($productId, $options);
+        return $this->getCount($productId, $options);
     }
 
-    protected function _prefix($parentId)
+    protected function prefix($parentId)
     {
         if ($parentId) {
             return ShopifyProduct::PLURAL . DIRECTORY_SEPARATOR . $parentId . DIRECTORY_SEPARATOR;

@@ -10,6 +10,6 @@ trait CommonCreate
 {
     public function create($data)
     {
-        return $this->_post($data);
+        return $this->post($data);
     }
 }

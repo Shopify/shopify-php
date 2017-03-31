@@ -8,8 +8,8 @@ namespace Shopify;
 
 trait CommonReadCount
 {
-    public function readCount(Array $options = [])
+    public function readCount(array $options = [])
     {
-        return $this->_getCount(null, $options);
+        return $this->getCount(null, $options);
     }
 }

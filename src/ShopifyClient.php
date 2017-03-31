@@ -8,9 +8,9 @@ namespace Shopify;
 
 class ShopifyClient
 {
-    private $_accessToken;
-    private $_shopName;
-    private $_httpClient;
+    private $accessToken;
+    private $shopName;
+    private $httpClient;
 
     private static $resources = [
         "order",
@@ -33,25 +33,25 @@ class ShopifyClient
         $this->setHttpClient();
     }
 
-    public function setAccessToken($_accessToken)
+    public function setAccessToken($accessToken)
     {
-        if (preg_match('/^([a-zA-Z0-9]{10,100})$/', $_accessToken)===0) {
+        if (preg_match('/^([a-zA-Z0-9]{10,100})$/', $accessToken)===0) {
             throw new \InvalidArgumentException("Access token should be between 10 and 100 letters and numbers");
         }
-        $this->_accessToken = $_accessToken;
+        $this->accessToken = $accessToken;
     }
 
     public function setShopName($shopName)
     {
-        if (!$this->_isValidShopName($shopName)) {
+        if (!$this->isValidShopName($shopName)) {
             throw new \InvalidArgumentException(
                 'Shop name should be 3-100 letters, numbers, or hyphens e.g. your-store.myshopify.com'
             );
         }
-        $this->_shopName = $shopName;
+        $this->shopName = $shopName;
     }
 
-    private function _isValidShopName($shopName)
+    private function isValidShopName($shopName)
     {
         if (preg_match('/^[a-zA-Z0-9\-]{3,100}\.myshopify\.(?:com|io)$/', $shopName)) {
             return true;
@@ -59,16 +59,16 @@ class ShopifyClient
         return false;
     }
 
-    private function _uriBuilder($resource)
+    private function uriBuilder($resource)
     {
-        return "https://" . $this->_shopName . "/admin/" . $resource . ".json";
+        return 'https://' . $this->shopName . '/admin/' . $resource . '.json';
     }
 
-    private function _authHeaders()
+    private function authHeaders()
     {
         return [
-            "Content-Type: application/json",
-            "X-Shopify-Access-Token: " . $this->_accessToken
+            'Content-Type: application/json',
+            'X-Shopify-Access-Token: ' . $this->_accessToken
         ];
     }
 
@@ -77,11 +77,17 @@ class ShopifyClient
         if (!in_array($method, ["POST", "PUT", "PATCH", "GET", "DELETE", "HEAD"], true)) {
             throw new \InvalidArgumentException("Method not valid");
         }
-        return $this->_httpClient->request($method, $this->_uriBuilder($resource), $this->_authHeaders(), $payload, $parameters);
+        return $this->httpClient->request(
+            $method,
+            $this->uriBuilder($resource),
+            $this->authHeaders(),
+            $payload,
+            $parameters
+        );
     }
 
     public function setHttpClient(HttpRequestInterface $client = null)
     {
-        $this->_httpClient = ($client ? $client : new CurlRequest());
+        $this->httpClient = ($client ? $client : new CurlRequest());
     }
 }

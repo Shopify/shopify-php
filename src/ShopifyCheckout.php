@@ -14,5 +14,4 @@ class ShopifyCheckout extends ShopifyObject
 
     const PLURAL = "checkouts";
     const SINGULAR = "checkout";
-
 }

@@ -1,4 +1,9 @@
 <?php
+/**
+ * @copyright Copyright (c) 2017 Shopify Inc.
+ * @license MIT
+ */
+
 namespace Shopify;
 
 class ShopifyCheckoutTest extends \PHPUnit_Framework_TestCase

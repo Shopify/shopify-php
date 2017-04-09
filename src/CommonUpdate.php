@@ -10,6 +10,6 @@ trait CommonUpdate
 {
     public function update($id, $data)
     {
-        return $this->_put($id, $data);
+        return $this->put($id, $data);
     }
 }

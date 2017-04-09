@@ -12,6 +12,6 @@ class ShopifyShop extends ShopifyObject
 
     public function read()
     {
-        return $this->_client->call("GET", self::SINGULAR, null, []);
+        return $this->client->call("GET", self::SINGULAR, null, []);
     }
 }

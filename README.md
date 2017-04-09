@@ -55,3 +55,18 @@ $response = $client->orders->readCount(["status" => "open"]);
 ```php
 $response = $client->orders->delete($orderId);
 ```
+
+--- 
+
+## Testing phpunit
+
+```bash
+phpunit
+```
+
+## Running PHP CodeSniffer
+
+```bash
+./vendor/bin/phpcs ./src/ --standard=PSR2
+./vendor/bin/phpcs ./test/ --standard=PSR2
+```

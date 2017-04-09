@@ -8,40 +8,40 @@ namespace Shopify;
 
 class ShopifyObject
 {
-    protected $_client;
+    protected $client;
 
     public function __construct(ShopifyClient $client)
     {
-        $this->_client = $client;
+        $this->client = $client;
     }
 
-    protected function _get($id, $prefix = '')
+    protected function get($id, $prefix = '')
     {
         $resource = $prefix . static::PLURAL . DIRECTORY_SEPARATOR . $id;
-        return $this->_client->call("GET", $resource, null, null);
+        return $this->client->call("GET", $resource, null, null);
     }
 
-    protected function _getList(Array $options = [], $prefix = '')
+    protected function getList(array $options = [], $prefix = '')
     {
         $resource = $prefix . static::PLURAL;
-        return $this->_client->call("GET", $resource, null, $options);
+        return $this->client->call("GET", $resource, null, $options);
     }
 
-    protected function _post($data, $prefix = '')
+    protected function post($data, $prefix = '')
     {
         $resource = $prefix . static::PLURAL;
-        return $this->_client->call("POST", $resource, [static::SINGULAR => $data], []);
+        return $this->client->call("POST", $resource, [static::SINGULAR => $data], []);
     }
 
-    protected function _delete($id, $prefix = '')
+    protected function delete($id, $prefix = '')
     {
         $resource = $prefix . static::PLURAL . DIRECTORY_SEPARATOR . $id;
-        return $this->_client->call("DELETE", $resource, null, null);
+        return $this->client->call("DELETE", $resource, null, null);
     }
 
-    protected function _put($id, $data, $prefix = '')
+    protected function put($id, $data, $prefix = '')
     {
         $resource = $prefix . static::PLURAL . DIRECTORY_SEPARATOR . $id;
-        return $this->_client->call("PUT", $resource, [static::SINGULAR => $data], null);
+        return $this->client->call("PUT", $resource, [static::SINGULAR => $data], null);
     }
 }

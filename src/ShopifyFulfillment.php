@@ -13,32 +13,32 @@ class ShopifyFulfillment extends ShopifyObject
 
     use Countable;
 
-    public function readList($orderId = null, Array $options = [])
+    public function readList($orderId = null, array $options = [])
     {
-        return $this->_getList($options, $this->_prefix($orderId));
+        return $this->getList($options, $this->prefix($orderId));
     }
 
-    public function readCount($orderId, Array $options = [])
+    public function readCount($orderId, array $options = [])
     {
-        return $this->_getCount($orderId, $options);
+        return $this->getCount($orderId, $options);
     }
 
     public function read($id, $orderId)
     {
-        return $this->_get($id, $this->_prefix($orderId));
+        return $this->get($id, $this->prefix($orderId));
     }
 
     public function create($orderId, $data)
     {
-        $this->_post($data, $this->_prefix($orderId));
+        $this->post($data, $this->prefix($orderId));
     }
 
     public function update($id, $orderId, $data)
     {
-        $this->_put($id, $data, $this->_prefix($orderId));
+        $this->put($id, $data, $this->prefix($orderId));
     }
 
-    protected function _prefix($orderId)
+    protected function prefix($orderId)
     {
         return ShopifyOrder::PLURAL . DIRECTORY_SEPARATOR . $orderId . DIRECTORY_SEPARATOR;
     }

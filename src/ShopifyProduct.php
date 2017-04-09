@@ -18,5 +18,4 @@ class ShopifyProduct extends ShopifyObject
 
     const PLURAL = "products";
     const SINGULAR = "product";
-
 }

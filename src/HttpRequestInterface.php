@@ -8,5 +8,5 @@ namespace Shopify;
 
 interface HttpRequestInterface
 {
-    public function request($method, $endpoint, Array $headers = [], $payload = null, Array $parameters = []);
+    public function request($method, $endpoint, array $headers = [], $payload = null, array $parameters = []);
 }

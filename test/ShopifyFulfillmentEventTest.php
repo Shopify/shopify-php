@@ -37,7 +37,7 @@ class ShopifyFulfillmentEventTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockClient->expects($this->once())
             ->method('call')
-            ->with('DELETE', 'orders/123/fulfillments/456/events/678', null, null);
+            ->with('DELETE', 'orders/123/fulfillments/456/events/678', null, []);
         $this->mockClient->fulfillment_events->destroy(678, 123, 456);
     }
 
@@ -45,7 +45,7 @@ class ShopifyFulfillmentEventTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockClient->expects($this->once())
             ->method('call')
-            ->with('GET', 'orders/123/fulfillments/456/events/678', null, null);
+            ->with('GET', 'orders/123/fulfillments/456/events/678', null, []);
         $this->mockClient->fulfillment_events->read(678, 123, 456);
     }
 }

@@ -6,7 +6,7 @@
 
 namespace Shopify;
 
-class CurlResponse implements HttpResponseInterface
+class Response implements HttpResponseInterface
 {
     private $headers;
     private $responseBody;

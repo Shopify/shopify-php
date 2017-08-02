@@ -12,4 +12,9 @@ trait CommonDestroy
     {
         return $this->delete($id);
     }
+    
+    public function destroyAllMeta($id)
+    {
+        return $this->deleteAllMeta($id);
+    }
 }

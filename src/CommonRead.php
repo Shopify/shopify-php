@@ -15,6 +15,6 @@ trait CommonRead
     
     public function readMeta($id)
     {
-        return $this->get($id);
+        return $this->getMeta($id);
     }
 }

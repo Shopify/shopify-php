@@ -12,4 +12,9 @@ trait CommonUpdate
     {
         return $this->put($id, $data);
     }
+    
+    public function updateMeta($id, $data)
+    {
+        return $this->putMeta($id, $data);
+    }
 }

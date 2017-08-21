@@ -21,7 +21,7 @@ class ShopifyFulfillmentTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockClient->expects($this->once())
             ->method('call')
-            ->with('GET', 'orders/123/fulfillments/456', null, null);
+            ->with('GET', 'orders/123/fulfillments/456', null, []);
         $this->mockClient->fulfillments->read(456, 123);
     }
 
@@ -53,7 +53,7 @@ class ShopifyFulfillmentTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockClient->expects($this->once())
             ->method('call')
-            ->with('PUT', 'orders/123/fulfillments/456', ['fulfillment' => ['tracking_number' => 'abc']], null);
+            ->with('PUT', 'orders/123/fulfillments/456', ['fulfillment' => ['tracking_number' => 'abc']], []);
         $this->mockClient->fulfillments->update(456, 123, ['tracking_number' => 'abc']);
     }
 }

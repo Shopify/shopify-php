@@ -22,14 +22,18 @@ class ShopifyClient
         "variant"
     ];
 
-    public function __construct($accessToken, $shopName)
+    public function __construct($accessToken = null, $shopName = null)
     {
         foreach (self::$resources as $resource) {
             $className = 'Shopify\Shopify' . str_replace("_", "", ucwords($resource, "_"));
             $this->{$resource . "s"} = new $className($this);
         }
-        $this->setAccessToken($accessToken);
-        $this->setShopName($shopName);
+        if ($accessToken !== null) {
+            $this->setAccessToken($accessToken);
+        }
+        if ($shopName !== null) {
+            $this->setShopName($shopName);
+        }
         $this->setHttpClient();
     }
 
@@ -66,6 +70,9 @@ class ShopifyClient
 
     private function authHeaders()
     {
+        if ($this->accessToken === null) {
+            throw new \LogicException('Access Token not set');
+        }
         return [
             'Content-Type: application/json',
             'X-Shopify-Access-Token: ' . $this->accessToken
@@ -74,6 +81,12 @@ class ShopifyClient
 
     public function call($method, $resource, $payload = null, $parameters = [])
     {
+        if ($this->shopName === null) {
+            throw new \LogicException('Shop name not set');
+        }
+        if ($this->shopName === null) {
+            throw new \LogicException('Shop name not set');
+        }
         if (!in_array($method, ["POST", "PUT", "PATCH", "GET", "DELETE", "HEAD"], true)) {
             throw new \InvalidArgumentException("Method not valid");
         }

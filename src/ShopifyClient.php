@@ -19,7 +19,8 @@ class ShopifyClient
         "fulfillment_event",
         "product",
         "shop",
-        "variant"
+        "variant",
+        "webhook"
     ];
 
     public function __construct($accessToken, $shopName)

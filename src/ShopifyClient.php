@@ -19,7 +19,8 @@ class ShopifyClient
         "fulfillment_event",
         "product",
         "shop",
-        "variant"
+        "variant",
+        "recurring_application_charge"
     ];
 
     public function __construct($accessToken, $shopName)

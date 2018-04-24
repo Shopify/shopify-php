@@ -29,7 +29,7 @@ class ShopifyRecurringApplicationChargeTest extends \PHPUnit_Framework_TestCase
     {
         $this->mockClient->expects($this->once())
             ->method('call')
-            ->with('GET', 'recurring_application_charges\123', null);
+            ->with('GET', 'recurring_application_charges/123', null);
         $this->mockClient->recurring_application_charges->read(123);
     }
 

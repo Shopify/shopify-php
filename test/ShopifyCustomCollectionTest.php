@@ -38,7 +38,7 @@ class ShopifyCustomCollectionTest extends \PHPUnit_Framework_TestCase
         $customCollections = ["title" => "Macbooks"];
         $this->mockClient->expects($this->once())
             ->method('call')
-            ->with('POST', 'custom_collections', ["custom_collections" => $customCollections]);
+            ->with('POST', 'custom_collections', ["custom_collection" => $customCollections]);
         $this->mockClient->custom_collections->create(["title" => "Macbooks"]);
     }
 

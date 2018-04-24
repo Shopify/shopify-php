@@ -20,7 +20,10 @@ class ShopifyClient
         "product",
         "shop",
         "variant",
-        "recurring_application_charge"
+        "recurring_application_charge",
+        "custom_collection",
+        "smart_collection",
+        "collect"
     ];
 
     public function __construct($accessToken, $shopName)

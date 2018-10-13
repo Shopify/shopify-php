@@ -30,12 +30,12 @@ class ShopifyFulfillment extends ShopifyObject
 
     public function create($orderId, $data)
     {
-        $this->post($data, $this->prefix($orderId));
+        return  $this->post($data, $this->prefix($orderId));
     }
 
     public function update($id, $orderId, $data)
     {
-        $this->put($id, $data, $this->prefix($orderId));
+        return $this->put($id, $data, $this->prefix($orderId));
     }
 
     protected function prefix($orderId)

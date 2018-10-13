@@ -12,4 +12,9 @@ trait CommonRead
     {
         return $this->get($id);
     }
+    
+    public function readMeta($id)
+    {
+        return $this->getMeta($id);
+    }
 }

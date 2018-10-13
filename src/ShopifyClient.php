@@ -82,7 +82,7 @@ class ShopifyClient
             $this->uriBuilder($resource),
             $this->authHeaders(),
             $payload,
-            $parameters
+            $parameters ?: []
         );
     }
 

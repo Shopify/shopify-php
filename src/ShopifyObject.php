@@ -26,6 +26,12 @@ class ShopifyObject
         $resource = $prefix . static::PLURAL . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR .'metafields';
         return $this->client->call("GET", $resource, null, null);
     }
+    
+    protected function getMeta($id, $prefix = '')
+    {
+        $resource = $prefix . static::PLURAL . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR .'metafields';
+        return $this->client->call("GET", $resource, null, null);
+    }
 
     protected function getList(array $options = [], $prefix = '')
     {

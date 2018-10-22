@@ -6,12 +6,12 @@
 
 namespace Shopify;
 
-class CurlRequestTest extends \PHPUnit_Framework_TestCase
+class RequestTest extends \PHPUnit_Framework_TestCase
 {
     public function testRequest()
     {
         $stub = $this->
-        getMockBuilder('Shopify\CurlRequest')
+        getMockBuilder('Shopify\Request')
             ->setMethods(['setCurlOpt', 'execute', 'curlInit'])
             ->getMock();
         $stub->method('execute')->willReturn("HTTP/1.1 201 Created\r\nServer: nginx\r\n\r\n{\"count\": 1}");

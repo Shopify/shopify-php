@@ -3,6 +3,11 @@
 
 [![Build Status](https://travis-ci.org/Shopify/shopify-php.svg?branch=master)](https://travis-ci.org/Shopify/shopify-php) [![codecov](https://codecov.io/gh/Shopify/shopify-php/branch/master/graph/badge.svg)](https://codecov.io/gh/Shopify/shopify-php)
 
+## Installation via [composer](https://getcomposer.org/download/)
+
+```
+composer require shopify/shopify-php
+```
 
 ## Getting started
 

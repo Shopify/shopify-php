@@ -6,7 +6,7 @@
 
 namespace Shopify;
 
-class CurlRequest implements HttpRequestInterface
+class Request implements HttpRequestInterface
 {
     public function request($method, $endpoint, array $headers = [], $payload = null, array $parameters = [])
     {
@@ -24,7 +24,7 @@ class CurlRequest implements HttpRequestInterface
         $this->setCurlOpt($ch, CURLOPT_RETURNTRANSFER, true);
         $this->setCurlOpt($ch, CURLOPT_HEADER, 1);
         $response = $this->execute($ch);
-        return new CurlResponse($response);
+        return new Response($response);
     }
 
     protected function execute($ch)

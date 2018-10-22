@@ -88,6 +88,6 @@ class ShopifyClient
 
     public function setHttpClient(HttpRequestInterface $client = null)
     {
-        $this->httpClient = ($client ? $client : new CurlRequest());
+        $this->httpClient = ($client ? $client : new Request());
     }
 }

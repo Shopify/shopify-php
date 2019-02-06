@@ -33,6 +33,12 @@ class ShopifyObject
         return $this->client->call("POST", $resource, [static::SINGULAR => $data], []);
     }
 
+    protected function postCustom($data, $id, $suffix = '')
+    {
+        $resource = sprintf(static::PLURAL . '/%s/' . $suffix, $id);
+        return $this->client->call("POST", $resource, [static::SINGULAR => $data], []);
+    }
+
     protected function delete($id, $prefix = '')
     {
         $resource = $prefix . static::PLURAL . DIRECTORY_SEPARATOR . $id;

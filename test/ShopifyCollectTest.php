@@ -49,4 +49,23 @@ class ShopifyCollectTest extends \PHPUnit_Framework_TestCase
             ->with('GET', 'collects/count', null, ['collection_id' => 123]);
         $this->mockClient->collects->readCount(['collection_id' => 123]);
     }
+
+    public function testCustomCreate()
+    {
+        $collect = [
+            "description" => "The Amazing Franco Plan",
+            "price" => 1.0
+        ];
+        $this->mockClient->expects($this->once())
+            ->method('call')
+            ->with('POST', 'collects/123/extra_suffix', ["collect" => $collect]);
+        $this->mockClient->collects->customCreate(
+            [
+                "description" => "The Amazing Franco Plan",
+                "price" => 1.0
+            ],
+            '123',
+            'extra_suffix'
+        );
+    }
 }

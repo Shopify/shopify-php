@@ -51,4 +51,23 @@ class ShopifyRecurringApplicationChargeTest extends \PHPUnit_Framework_TestCase
             "test" => true
         ]);
     }
+
+    public function testCustomCreate()
+    {
+        $recurringCharges = [
+            "description" => "The Amazing Franco Plan",
+            "price" => 1.0
+        ];
+        $this->mockClient->expects($this->once())
+            ->method('call')
+            ->with('POST', 'recurring_application_charges/123/extra_suffix', ["recurring_application_charge" => $recurringCharges]);
+        $this->mockClient->recurring_application_charges->customCreate(
+            [
+                "description" => "The Amazing Franco Plan",
+                "price" => 1.0
+            ],
+            '123',
+            'extra_suffix'
+        );
+    }
 }

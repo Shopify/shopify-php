@@ -49,4 +49,23 @@ class ShopifyProductTest extends \PHPUnit_Framework_TestCase
             ->with('GET', 'products/count', null, ['collection_id' => 123]);
         $this->mockClient->products->readCount(['collection_id' => 123]);
     }
+
+    public function testCustomCreate()
+    {
+        $product = [
+            "description" => "The Amazing Franco Plan",
+            "price" => 1.0
+        ];
+        $this->mockClient->expects($this->once())
+            ->method('call')
+            ->with('POST', 'products/123/extra_suffix', ["product" => $product]);
+        $this->mockClient->products->customCreate(
+            [
+                "description" => "The Amazing Franco Plan",
+                "price" => 1.0
+            ],
+            '123',
+            'extra_suffix'
+        );
+    }
 }
